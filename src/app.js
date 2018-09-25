@@ -28,12 +28,12 @@ function createApp() {
     logger.info('ALLOW_HTTP=true, unsafe requests are allowed. Don\'t use this in production.');
   }
 
-  const corsOpts = {
-    origin: config.CORS_ORIGIN,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'HEAD', 'PATCH'],
-  };
-  logger.info('Using CORS options:', corsOpts);
-  app.use(cors(corsOpts));
+  // const corsOpts = {
+  //   origin: config.CORS_ORIGIN,
+  //   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'HEAD', 'PATCH'],
+  // };
+  // logger.info('Using CORS options:', corsOpts);
+  app.use(cors());
 
   // Limit to 10mb if HTML has e.g. inline images
   app.use(bodyParser.text({ limit: '4mb', type: 'text/html' }));
